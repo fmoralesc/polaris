@@ -1,0 +1,9 @@
+# Polaris
+
+A dzen2-based taskbar.
+
+## Usage
+
+1. Copy polaris.py to someplace in your PATH.
+2. Edit polarisrc to your liking and save it as HOME/.polarisrc
+3. run polaris.py

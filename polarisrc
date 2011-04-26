@@ -1,0 +1,21 @@
+[General]
+dzen2_opts:	-ta l -h 12
+separator_fg:	#808080
+
+[Workspaces]
+normal_bg:	#000000
+normal_fg:	#707070
+active_bg:	#202020
+active_fg:	#0095ff
+
+[Tasks]
+active_fg:	#eeeeee
+active_bg:	#050505
+normal_fg:  #808080
+normal_bg:	#000000
+iconiz_fg:	#606060
+iconiz_bg:	#000000
+
+[Clock]
+strftime:	%H:%M
+clock_fg:	ffffff
