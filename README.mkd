@@ -1,5 +1,7 @@
 # Polaris
 
+![polaris](http://notsnippets.tumblr.com/photo/1280/4253853530/1/tumblr_liyow8KN9v1qb4i3y)
+
 A dzen2-based taskbar.
 
 ## Usage
