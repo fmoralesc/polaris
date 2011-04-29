@@ -85,15 +85,15 @@ class PolarisManager(dbus.service.Object):
 			return workspace.replace("^fg(" + self.WORKSPACES_NFG, "^fg(" + self.WORKSPACES_AFG)
 		def abg(workspace):
 			return workspace.replace("^bg(" + self.WORKSPACES_NBG, "^bg(" + self.WORKSPACES_ABG)
-		def ca_workspace(workspace, workspace_name):
-			return "^ca(1, polaris.py -w " + workspace_name + ")" + workspace + "^ca()"
+		def ca_workspace(workspace_label, workspace_number):
+			return "^ca(1, polaris.py -w " + str(workspace_number) + ")" + workspace_label + "^ca()"
 
 		wm_workspaces = self.screen.get_workspaces()
 		workspaces = []
 		count = 0
 		for workspace in wm_workspaces:
 			workspace.connect("name-changed", self.get_workspaces)
-			workspaces.append(ca_workspace(nbg(nfg("^p(;2)^ro(4x4)^p(;-2) " + workspace.get_name() + " ")), workspace.get_name()))
+			workspaces.append(ca_workspace(nbg(nfg("^p(;2)^ro(4x4)^p(;-2) " + workspace.get_name() + " ")), workspace.get_number()))
 			count = count + 1
 		active_workspace = self.screen.get_active_workspace().get_number()
 		workspaces[active_workspace] = fill_ro(abg(afg(workspaces[active_workspace])))
@@ -195,14 +195,14 @@ class PolarisManager(dbus.service.Object):
 		return False
 
 	@dbus.service.method('org.polaris.service')
-	def switch_workspace(self, workspace_name):
+	def switch_workspace(self, workspace_number):
 		workspaces = self.screen.get_workspaces()
-		cw = self.screen.get_active_workspace().get_name()
+		cw = self.screen.get_active_workspace().get_number()
 		for workspace in workspaces:
-			if workspace.get_name() == workspace_name != cw:
+			if workspace.get_number() == int(workspace_number) != cw:
 				workspace.activate(1)
 				return True
-			elif workspace.get_name() == workspace_name == cw:
+			elif workspace.get_number() == int(workspace_number) == cw:
 				self.screen.toggle_showing_desktop(not self.screen.get_showing_desktop())
 				return True
 		return False
