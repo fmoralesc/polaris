@@ -175,7 +175,7 @@ class PolarisManager(dbus.service.Object):
 	def output_dzen_line(self, *args):
 		def strip_accents(s):
 		   return ''.join((c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn'))
-		dzen2_line = "^p(2)^fn(droid sans:bold:size=8)" + self.time + "^p(5)" + self.workspaces + "^p(2)^fg(#808080)^r(1x5)^fg()^p(6)" + self.windows
+		dzen2_line = unicode("^p(2)^fn(droid sans:bold:size=8)" + self.time + "^p(5)" + self.workspaces + "^p(2)^fg(#808080)^r(1x5)^fg()^p(6)" + self.windows)
 		dzen2_line = strip_accents(dzen2_line) #this way, we can use any font we like, even if it doesn't have accents
 		self.dzen2_pipe.stdin.write(dzen2_line + "\n")
 
