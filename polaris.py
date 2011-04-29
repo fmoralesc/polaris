@@ -187,14 +187,14 @@ class PolarisManager(dbus.service.Object):
 		for cw_window in cw_windows:
 			if str(cw_window.get_xid()) == window_xid:
 				if cw_window.is_minimized():
-					cw_window.unminimize(1)
+					cw_window.unminimize(0)
 					return True
 				else:
 					if cw_window.is_active():
 						cw_window.minimize()
 						return True
 					else:
-						cw_window.activate(1)
+						cw_window.activate(0)
 						return True
 		return False
 
