@@ -2,7 +2,10 @@
 
 ![polaris](http://farm6.static.flickr.com/5229/5658070001_1058edfc64_b.jpg)
 
-A dzen2-based taskbar.
+A dzen2-based taskbar. 
+
+**IMPORTANT**: This is provided only as an example of how such a thing can be done. There are no facilities 
+to customize the bar, even though it is possible, nor there are intentions to add them.
 
 ## Usage
 
